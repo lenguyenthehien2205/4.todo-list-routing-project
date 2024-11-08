@@ -1,0 +1,14 @@
+.task-list::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 8px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.task-list:hover::-webkit-scrollbar-thumb {
+  background: #bcc0c4;
+}

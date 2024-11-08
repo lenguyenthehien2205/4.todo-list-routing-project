@@ -1,0 +1,22 @@
+<h2 class="text-[#3c2c50] text-[20px] font-bold my-2">Chỉnh sửa công việc</h2>
+<form (ngSubmit)="onSubmit()" class="space-y-4">
+  <p>
+    <label for="title" class="block font-bold text-sm text-[#ab9ac0] mb-1">Tiêu đề</label>
+    <input type="text" id="title" name="title" [(ngModel)]="enteredTitle" class="w-full font-inherit p-1 rounded border border-[#ab9ac0] bg-[#d0c2e1]" />
+  </p>
+
+  <p>
+    <label for="summary" class="block font-bold text-sm text-[#ab9ac0] mb-1">Tóm tắt</label>
+    <textarea id="summary" rows="5" name="summary" [(ngModel)]="enteredSummary" class="w-full font-inherit p-1 rounded border border-[#ab9ac0] bg-[#d0c2e1]"></textarea>
+  </p>
+
+  <p>
+    <label for="due-date" class="block font-bold text-sm text-[#ab9ac0] mb-1">Hạn chót</label>
+    <input type="date" id="due-date" name="due-date" [(ngModel)]="enteredDate" class="w-full font-inherit p-1 rounded border border-[#ab9ac0] bg-[#d0c2e1]" />
+  </p>
+
+  <p class="flex justify-end items-center gap-3 mt-4">
+    <a routerLink="../" class="text-[#bdadcf] no-underline hover:text-[#d0c2e1] cursor-pointer">Thoát</a>
+    <button type="submit" class="font-inherit cursor-pointer border-none p-2 rounded bg-[#9c73ca] text-white shadow-md transition-all duration-300 ease-in-out hover:bg-[#895cce] hover:shadow-lg">Chỉnh sửa</button>
+  </p>
+</form>

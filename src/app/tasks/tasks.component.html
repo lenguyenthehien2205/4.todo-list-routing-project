@@ -1,0 +1,16 @@
+@if(hasTasks()){
+  <div class="my-2">
+    <a routerLink="./" [queryParams]="{order: order() === 'desc' ? 'asc' : 'desc'}" class="hover:text-[#ccc] cursor-pointer">
+      Sắp xếp {{ order() === 'desc' ? 'Z-A' : 'A-Z' }}
+    </a>
+  </div>
+}
+<ul [ngClass]="{'overflow-y-auto': hasTasks(), 'overflow-y-hidden': !hasTasks()}">
+  @for (task of userTasks(); track task.id) {
+    <li>
+      <app-task [task]="task" />
+    </li>
+  } @empty {
+    <p class="p-2">Chưa có công việc</p>
+  }
+</ul>

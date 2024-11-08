@@ -1,0 +1,6 @@
+<div class="rounded-md shadow-md overflow-hidden">
+  <a [routerLink]="['/users/' + user.id, 'tasks']" routerLinkActive="selected" class="flex items-center gap-2 p-1.5 bg-[#B6FFA1] text-[#000] border-none cursor-pointer w-full min-w-40 text-left no-underline hover:bg-[#9965dd] hover:text-[#fff] active:bg-[#9965dd] active:text-[#150722] transition-all">
+    <img [src]="'https://robohash.org/'+user.username" [alt]="user.name" class="w-8 h-8 object-contain rounded-full shadow-md">
+    <span class="m-0 p-0 text-[12px] font-normal">{{ user.name }}</span>
+  </a>
+</div>

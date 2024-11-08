@@ -1,0 +1,7 @@
+<ul class="list-none m-0 p-0 flex gap-2 overflow-auto md:flex-col user-list h-[310px]">
+  @for (user of users | async; track user.id) {
+    <li>
+      <app-user [user]="user" />
+    </li>
+  }
+</ul>

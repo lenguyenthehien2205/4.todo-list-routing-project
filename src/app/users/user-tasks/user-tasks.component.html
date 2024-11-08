@@ -1,0 +1,12 @@
+<section id="tasks" class="bg-[#B6FFA1] p-4 rounded-lg max-h-[60vh] overflow-auto">
+  <header class="flex justify-between items-start gap-4">
+    <h2 class="text-[#3c2c50] text-[25px] font-bold my-1"><span class="font-semibold">Công việc của </span>{{ userName() }}</h2>
+    <menu class="m-0 p-0">
+      <a routerLink="tasks/new" class="font-inherit cursor-pointer text-[#ffffff] bg-[#9965dd] rounded px-3 py-1 text-[sm] no-underline transition-colors duration-300 hover:bg-[#a565dd] active:bg-[#a565dd]">
+        Thêm
+      </a>
+    </menu>
+  </header>
+
+  <router-outlet />
+</section>

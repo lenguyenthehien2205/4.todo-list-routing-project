@@ -1,0 +1,13 @@
+<app-card>
+  <article class="p-4 text-[#25113d] bg-[#bf9ee5]">
+    <h2 class="text-[#3c2c50] text-[20px] font-bold my-[2px]">{{ task().title }}</h2>
+    <time class="text-[#3c2c50]">{{ task().dueDate | date : "fullDate" }}</time>
+    <p class="my-[5px]">{{ task().summary }}</p>
+    <p class="text-right m-0">
+      <a [routerLink]="['edit']" [state]="{ task: task() }">Chỉnh sửa</a>
+      <button (click)="onComplete()" class="font-inherit text-sm cursor-pointer bg-[#380774] text-[#decdf2] rounded 
+      px-6 py-2 border-none shadow-md transition-all duration-300 ease-in-out
+      hover:bg-[#4a0774] hover:shadow-lg active:bg-[#4a0774] active:shadow-lg ml-3">Hoàn thành</button>
+    </p>
+  </article>
+</app-card>
