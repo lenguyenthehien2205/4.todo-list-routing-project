@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 import { TasksComponent } from "../tasks/tasks.component";
-import { canLeaveAddPage, canSubmitAddForm, NewTaskComponent } from "../tasks/new-task/new-task.component";
-import { canSubmitEditForm, canLeaveEditPage, EditTaskComponent } from "../tasks/edit-task/edit-task.component";
+import { canLeaveAddPage, NewTaskComponent } from "../tasks/new-task/new-task.component";
+import { canLeaveEditPage, EditTaskComponent } from "../tasks/edit-task/edit-task.component";
 
 export const routes: Routes = [
     {
