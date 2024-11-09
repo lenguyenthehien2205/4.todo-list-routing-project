@@ -21,11 +21,11 @@ export const routes: Routes = [
     {
         path: 'tasks/new',
         component: NewTaskComponent,
-        canDeactivate: [canLeaveAddPage, canSubmitAddForm]
+        canDeactivate: [canLeaveAddPage]
     },
     {
         path: 'tasks/edit',
         component: EditTaskComponent,
-        canDeactivate: [canLeaveEditPage, canSubmitEditForm]
+        canDeactivate: [canLeaveEditPage]
     }
 ];

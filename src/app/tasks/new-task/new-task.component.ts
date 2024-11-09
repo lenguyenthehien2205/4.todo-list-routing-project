@@ -20,6 +20,12 @@ export class NewTaskComponent {
   private tasksService = inject(TasksService);
   private router = inject(Router);
   onSubmit() {
+    if (!this.enteredDate() || !this.enteredSummary() || !this.enteredTitle()) {
+      window.alert("Vui lòng nhập đầy đủ thông tin!");
+      this.submitted = false;
+      return;
+    }
+
     this.tasksService.addTask(
       {
         title: this.enteredTitle(),
@@ -28,7 +34,9 @@ export class NewTaskComponent {
       },
       this.userId()
     );
+    // Nếu tất cả các trường đã được điền, tiến hành gửi form
     this.submitted = true;
+    window.alert("Thêm công việc thành công");
     this.router.navigate(['/users', this.userId(), 'tasks'], {
       // tranh nguoi dung quay lai newTask
       replaceUrl: true
@@ -43,19 +51,6 @@ export const canLeaveAddPage: CanDeactivateFn<NewTaskComponent> = (component) =>
   }
   if(component.enteredDate() || component.enteredSummary() || component.enteredTitle()){
     return window.confirm("Bạn có chắc muốn thoát khi dữ liệu bạn nhập vẫn còn?");
-  }
-  return true;
-}
-
-export const canSubmitAddForm: CanDeactivateFn<NewTaskComponent> = (component) => {
-  if(component.submitted){
-    if(!component.enteredDate() || !component.enteredSummary() || !component.enteredTitle()){
-      window.alert("Vui lòng nhập đầy đủ thông tin!");
-      return false;
-    }else{
-      window.alert("Thêm công việc thành công");
-      return true;
-    }
   }
   return true;
 }

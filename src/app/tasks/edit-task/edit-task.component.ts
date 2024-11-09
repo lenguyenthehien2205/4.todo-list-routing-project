@@ -31,6 +31,11 @@ export class EditTaskComponent {
 
   onSubmit() {
     const task = history.state.task;
+    if (!this.enteredDate() || !this.enteredSummary() || !this.enteredTitle()) {
+      window.alert("Vui lòng nhập đầy đủ thông tin!");
+      this.submitted = false;
+      return;
+    }
     this.tasksService.editTask(
       {
         title: this.enteredTitle(),
@@ -41,8 +46,9 @@ export class EditTaskComponent {
       task.id
     );
     this.submitted = true;
+    window.alert("Chỉnh sửa công việc thành công");
     this.router.navigate(['/users', this.userId(), 'tasks'], {
-      // tranh nguoi dung quay lai newTask
+      // tranh nguoi dung quay lai editTask
       replaceUrl: true
     });
   }
@@ -55,19 +61,6 @@ export const canLeaveEditPage: CanDeactivateFn<EditTaskComponent> = (component) 
   }
   if(component.enteredDate() || component.enteredSummary() || component.enteredTitle()){
     return window.confirm("Bạn có chắc muốn thoát khi dữ liệu bạn nhập vẫn còn?");
-  }
-  return true;
-}
-
-export const canSubmitEditForm: CanDeactivateFn<EditTaskComponent> = (component) => {
-  if(component.submitted){
-    if(!component.enteredDate() || !component.enteredSummary() || !component.enteredTitle()){
-      window.alert("Vui lòng nhập đầy đủ thông tin!");
-      return false;
-    }else{
-      window.alert("Chỉnh sửa công việc thành công");
-      return true;
-    }
   }
   return true;
 }
