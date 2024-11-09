@@ -1,6 +1,6 @@
 @if(hasTasks()){
   <div class="my-2">
-    <a routerLink="./" [queryParams]="{order: order() === 'desc' ? 'asc' : 'desc'}" class="hover:text-[#ccc] cursor-pointer">
+    <a routerLink="./" [queryParams]="{order: order() === 'desc' ? 'asc' : 'desc'}" class="cursor-pointer">
       Sắp xếp {{ order() === 'desc' ? 'Z-A' : 'A-Z' }}
     </a>
   </div>
